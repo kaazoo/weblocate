@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
 
-
 	def index
 	
 	end
@@ -8,9 +7,14 @@ class SearchController < ApplicationController
 
 	def ajax_search
 		if params['search'] && params['search'].length > 4
-			
-			cmd = "locate -l 30 " + params['search']
-			
+
+			query =  ActionController::Base.helpers.sanitize(params['search'])
+			query.gsub!(' ', '_')
+			query = Escape.shell_command(query)
+
+			cmd = "locate -l 30 " + query
+			puts cmd
+
 			out = IO.popen(cmd)
 			@results = out.readlines
 		
