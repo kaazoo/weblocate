@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>weblocate</title>
+<%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<h1>weblocate</h1>
+
+<strong>Search for a file:</strong>
+<br />
+
+<%= text_field('post', 'title')  %>
+<%= observe_field('post_title',  :frequency => 2, :update => 'results', :url => { :controller => 'search', :action=> 'ajax_search' }, :with => "'search=' + escape(value)") %>
+<br /><br /><br />
+
+<strong>Results:</strong>
+<br />
+
+<div id="results" style="border-style:solid; border-color:1px;">
+Type above to start search.
+</div>
+
+<br />
+
+</body>
+</html>
