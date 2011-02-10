@@ -12,8 +12,14 @@
 <strong>Search for a file:</strong>
 <br />
 
-<%= text_field('post', 'title')  %>
-<%= observe_field('post_title',  :frequency => 2, :update => 'results', :url => { :controller => 'search', :action=> 'ajax_search' }, :with => "'search=' + escape(value)") %>
+<%= text_field('post', 'title')  %> <img id="spinner" src="images/spinner.gif" style="visibility:hidden;" />
+<%= observe_field('post_title',
+  :frequency => 4,
+  :update => 'results',
+  :complete => "Element.hide('spinner')",
+  :before => "Element.hide('spinner')",
+  :url => { :controller => 'search', :action=> 'ajax_search' },
+  :with => "'search=' + escape(value)") %>
 <br /><br /><br />
 
 <strong>Results:</strong>
