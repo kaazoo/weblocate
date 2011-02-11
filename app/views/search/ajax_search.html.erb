@@ -1,8 +1,16 @@
 <%
 @results.each do |line|
 
+  # skip hidden files
+  if HIDDEN_FILES && File.basename(line).start_with?(".")
+    continue
+  end
+
+  # remove prefix
   line.gsub!(DELETE_PREFIX, "")
+  # add prefix for download
   link = LINK_PREFIX + line
+  # add highlighting
   line.gsub!(/(#{@query})/i, "<span style=\"color:green;\">"+'\1'+"</span>")
   %>
 	<%= line %>
