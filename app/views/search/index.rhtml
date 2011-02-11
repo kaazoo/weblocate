@@ -9,10 +9,13 @@
 
 <h1>weblocate</h1>
 
+This is a web interface for the well-known search tool 'locate'. Type a file or directory name into the search box and wait for the results.<br />
+Downloading a file requires authenticaton and means that you have your own local copy.<br /><br /><br />
+
 <strong>Search for a file:</strong>
 <br />
 
-<%= text_field('post', 'title')  %> &nbsp; <img id="spinner" name="spinner" src="images/spinner.gif" style="display:none;" />
+<%= text_field('post', 'title') %> &nbsp; <img id="spinner" name="spinner" src="images/spinner.gif" style="display:none;" />
 <%= observe_field('post_title',
   :frequency => 4,
   :update => 'results',
