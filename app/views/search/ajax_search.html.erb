@@ -2,8 +2,8 @@
 @results.each do |line|
 
   # skip hidden files
-  if HIDDEN_FILES && File.basename(line).start_with?(".")
-    continue
+  if !HIDDEN_FILES && File.basename(line).start_with?(".")
+    next
   end
 
   # remove prefix
