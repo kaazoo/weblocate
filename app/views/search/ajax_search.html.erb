@@ -3,7 +3,7 @@
 
   line.gsub!(DELETE_PREFIX, "")
   link = LINK_PREFIX + line
-  line.gsub!(@query, "<span style=\"color:green;\">"+@query+"</span>")
+  line.gsub!(/(#{@query})/i, "<span style=\"color:green;\">"+'\1'+"</span>")
   %>
 	<%= line %>
 	<% if File.extname(line) != "" %>

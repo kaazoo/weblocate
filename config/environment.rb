@@ -46,5 +46,6 @@ require 'escape'
 # configuration
 USE_SUDO = false
 RESULT_LIMIT = 50
+LOCATE_ARGS = "-i"
 DELETE_PREFIX = /\/easyraid\/[a-z0-9]+/
 LINK_PREFIX = "https://servername"

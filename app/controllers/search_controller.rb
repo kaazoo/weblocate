@@ -18,7 +18,7 @@ class SearchController < ApplicationController
         locate_cmd = "locate"
       end
 
-			cmd = locate_cmd + " -l "+ RESULT_LIMIT.to_s + " " + @query
+			cmd = locate_cmd + " " + LOCATE_ARGS.to_s + " -l "+ RESULT_LIMIT.to_s + " " + @query
 			puts cmd
 
 			out = IO.popen(cmd)
