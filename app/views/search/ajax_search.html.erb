@@ -1,8 +1,9 @@
 <%
 @results.each do |line|
   line.gsub!(DELETE_PREFIX, "")
+  link = LINK_PREFIX + line
   %>
-	<%=h line %><br/>
+	<%=h line %> <a href="<%=h link %>">download</a> <br/>
 <%
 end
 %>
