@@ -1,3 +1,8 @@
-<% @results.each do |line|%>
+<%
+@results.each do |line|
+  line.gsub!(DELETE_PREFIX, "")
+  %>
 	<%=h line %><br/>
-<% end%>
+<%
+end
+%>
