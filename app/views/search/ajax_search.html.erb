@@ -1,9 +1,14 @@
 <%
 @results.each do |line|
+
   line.gsub!(DELETE_PREFIX, "")
   link = LINK_PREFIX + line
+  line.gsub!(@query, "<span style=\"color:green;\">"+@query+"</span>")
   %>
-	<%=h line %> <a href="<%=h link %>">download</a> <br/>
-<%
-end
-%>
+	<%= line %>
+	<% if File.extname(line) != "" %>
+	  &nbsp; <a href="<%=h link %>">download</a>
+	<% end %>
+	<br/>
+
+<% end %>
