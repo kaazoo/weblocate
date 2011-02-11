@@ -6,7 +6,7 @@ class SearchController < ApplicationController
 
 
 	def ajax_search
-		if params['search'] && params['search'].length > 4
+		if params['search'] && params['search'].length > QUERY_MIN_LENGTH
 
 			@query =  ActionController::Base.helpers.sanitize(params['search'])
 			@query.gsub!(' ', '_')
@@ -26,7 +26,7 @@ class SearchController < ApplicationController
 		
 			render :layout => false
 		else
-			render :text => "Query must be longer than 4 characters."
+			render :text => "Query must be longer than " + QUERY_MIN_LENGTH.to_s + " characters."
 		end
 	end
 

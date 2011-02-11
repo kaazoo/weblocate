@@ -46,6 +46,7 @@ require 'escape'
 # configuration
 USE_SUDO = false
 RESULT_LIMIT = 50
+QUERY_MIN_LENGTH = 3
 LOCATE_ARGS = "-i"
 HIDDEN_FILES = false
 DELETE_PREFIX = /\/easyraid\/[a-z0-9]+/
