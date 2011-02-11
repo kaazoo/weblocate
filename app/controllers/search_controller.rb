@@ -12,7 +12,13 @@ class SearchController < ApplicationController
 			query.gsub!(' ', '_')
 			query = Escape.shell_command(query)
 
-			cmd = "locate -l 30 " + query
+      if USE_SUDO
+        locate_cmd = "sudo locate"
+      else
+        locate_cmd = "locate"
+      end
+
+			cmd = locate_cmd + " -l "+ RESULT_LIMIT.to_s + " " + query
 			puts cmd
 
 			out = IO.popen(cmd)
