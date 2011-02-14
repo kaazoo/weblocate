@@ -5,14 +5,14 @@
 <title>weblocate</title>
 <%= javascript_include_tag :defaults %>
 </head>
-<body>
+<body style="font-family:Helvetica,sans-serif;">
 
-<h1>weblocate</h1>
+<h1><img src="images/search_large.png" border="0" height="70px" align="bottom" alt="weblocate" /> weblocate</h1>
 
 This is a web interface for the well-known search tool 'locate'. Type a file or directory name into the search box and wait for the results.<br />
 Downloading a file requires authenticaton and means that you have your own local copy.<br /><br /><br />
 
-<strong>Search for a file:</strong>
+<strong>Search for:</strong>
 <br />
 
 <%= text_field('post', 'title') %> &nbsp; <img id="spinner" name="spinner" src="images/spinner.gif" style="display:none;" />
@@ -25,10 +25,7 @@ Downloading a file requires authenticaton and means that you have your own local
   :with => "'search=' + escape(value)") %>
 <br /><br /><br />
 
-<strong>Results:</strong>
-<br />
-
-<div id="results" style="border-style:solid; border-color:1px; width:100%; max-height:600px; overflow:auto;">
+<div id="results" style="width:100%; height:100%">
 Type above to start search.
 </div>
 

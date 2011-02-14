@@ -23,6 +23,7 @@ class SearchController < ApplicationController
 
 			out = IO.popen(cmd)
 			@results = out.readlines
+			@results_num = @results.length
 		
 			render :layout => false
 		else
