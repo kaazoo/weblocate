@@ -6,16 +6,26 @@
     next
   end
 
+  # remove trailing newline
+  line.chomp!
+
   # remove prefix
   line.gsub!(DELETE_PREFIX, "")
+
   # add prefix for download
-  link = LINK_PREFIX + line
+  download_link = LINK_PREFIX + line
+
   # add highlighting
-  line.gsub!(/(#{@query})/i, "<span style=\"color:green;\">"+'\1'+"</span>")
+  display_line = line.gsub(/(#{@query})/i, "<span style=\"color:green;\">"+'\1'+"</span>")
   %>
-	<%= line %>
-	<% if File.extname(line) != "" %>
-	  &nbsp; <a href="<%=h link %>">download</a>
+	<%= display_line %>
+
+	<% if File.directory?(line) %>
+	  <% smb_link = SMB_PREFIX + line %>
+	  &nbsp; <a href="<%=h smb_link %>">FM</a>
+	<% else %>
+	  <% smb_link = SMB_PREFIX + File.dirname(line) %>
+	  &nbsp; <a href="<%=h download_link %>">DL</a> &nbsp; <a href="<%=h smb_link %>">FM</a>
 	<% end %>
 	<br/>
 

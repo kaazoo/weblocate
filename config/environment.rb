@@ -51,3 +51,4 @@ LOCATE_ARGS = "-i"
 HIDDEN_FILES = false
 DELETE_PREFIX = /\/easyraid\/[a-z0-9]+/
 LINK_PREFIX = "https://servername"
+SMB_PREFIX = "smb://servername"
