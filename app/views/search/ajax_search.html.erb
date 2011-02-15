@@ -32,10 +32,11 @@
 
 	<% if File.directory?(line) %>
 	  <% smb_link = SMB_PREFIX + line %>
-	  &nbsp; <a href="<%=h smb_link %>"><img src="images/tree.png" border="0" height="20px" align="bottom" title="open parent directory in filemanager" /></a>
+	  &nbsp; <a href="<%=h smb_link %>"><%= image_tag("tree.png", :border => "0", :size => "20x20", :alt => "smb_link", :align => "bottom", :title => "open parent directory in filemanager") %></a>
 	<% else %>
 	  <% smb_link = SMB_PREFIX + File.dirname(line) %>
-	  &nbsp; <a href="<%=h download_link %>"><img src="images/download.png" border="0" height="20px" align="bottom" title="view / download file" /></a> &nbsp; <a href="<%=h smb_link %>"><img src="images/tree.png" border="0" height="20px" align="bottom" title="open parent directory in filemanager" /></a>
+	  &nbsp; <a href="<%=h download_link %>"><%= image_tag("download.png", :border => "0", :size => "20x20", :alt => "download_link", :align => "bottom", :title => "view / download file") %></a>
+	  &nbsp; <a href="<%=h smb_link %>"><%= image_tag("tree.png", :border => "0", :size => "20x20", :alt => "smb_link", :align => "bottom", :title => "open parent directory in filemanager") %></a>
 	<% end %>
 	<br/>
 
