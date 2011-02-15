@@ -26,7 +26,7 @@
   download_link = LINK_PREFIX + line
 
   # add highlighting
-  display_line = line.gsub(/(#{@query})/i, "<span style=\"color:green;\">"+'\1'+"</span>")
+  display_line = line.gsub(/(#{@query_not_escaped})/i, "<span style=\"color:green;\">"+'\1'+"</span>")
   %>
 	<%= display_line %>
 

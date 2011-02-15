@@ -10,6 +10,7 @@ class SearchController < ApplicationController
 
       @query = URI.unescape(params['search'])
       @query = ActionController::Base.helpers.sanitize(@query)
+      @query_not_escaped = @query
       @query = Escape.shell_command(@query)
 
       if USE_SUDO
