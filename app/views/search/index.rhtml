@@ -23,7 +23,7 @@ Downloading a file requires authenticaton and means that you have your own local
   :complete => "Element.hide('spinner')",
   :before => "Element.show('spinner')",
   :url => { :controller => 'search', :action=> 'ajax_search' },
-  :with => "'search=' + escape(value)") %>
+  :with => "'search=' + encodeURIComponent(value)") %>
 <br /><br /><br />
 
 <div id="results" style="width:100%; height:100%">

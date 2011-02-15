@@ -8,8 +8,9 @@ class SearchController < ApplicationController
 	def ajax_search
 		if params['search'] && params['search'].length >= QUERY_MIN_LENGTH
 
-			@query = ActionController::Base.helpers.sanitize(params['search'])
-			@query = Escape.shell_command(@query)
+      @query = URI.unescape(params['search'])
+      @query = ActionController::Base.helpers.sanitize(@query)
+      @query = Escape.shell_command(@query)
 
       if USE_SUDO
         locate_cmd = "sudo locate"
