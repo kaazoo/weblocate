@@ -1,15 +1,14 @@
 class SearchController < ApplicationController
 
 	def index
-	
+	  @frequency = FORM_FREQ.to_i
 	end
 
 
 	def ajax_search
-		if params['search'] && params['search'].length > QUERY_MIN_LENGTH
+		if params['search'] && params['search'].length >= QUERY_MIN_LENGTH
 
-			@query =  ActionController::Base.helpers.sanitize(params['search'])
-			@query.gsub!(' ', '_')
+			@query = ActionController::Base.helpers.sanitize(params['search'])
 			@query = Escape.shell_command(@query)
 
       if USE_SUDO

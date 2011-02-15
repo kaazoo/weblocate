@@ -18,7 +18,7 @@ Downloading a file requires authenticaton and means that you have your own local
 
 <%= text_field('post', 'title') %> &nbsp; <img id="spinner" name="spinner" src="images/spinner.gif" style="display:none;" />
 <%= observe_field('post_title',
-  :frequency => 4,
+  :frequency => @frequency,
   :update => 'results',
   :complete => "Element.hide('spinner')",
   :before => "Element.show('spinner')",
