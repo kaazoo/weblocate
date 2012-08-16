@@ -45,7 +45,7 @@ require 'escape'
 
 # configuration
 USE_SUDO = false
-RESULT_LIMIT = 50
+RESULT_LIMIT = 250
 QUERY_MIN_LENGTH = 3
 FORM_FREQ = 3
 LOCATE_ARGS = "-i"
