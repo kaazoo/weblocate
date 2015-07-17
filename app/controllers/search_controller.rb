@@ -21,7 +21,7 @@ class SearchController < ApplicationController
 
       prefixes = ALLOWED_PREFIXES
       prefixes.each do |prefix|
-        cmd = locate_cmd + " " + LOCATE_ARGS.to_s + " -l "+ RESULT_LIMIT.to_s + " " + prefix + "/\*" + @query
+        cmd = locate_cmd + " " + LOCATE_ARGS.to_s + " -l "+ RESULT_LIMIT.to_s + " " + prefix + "/\*" + @query + "\*"
         Rails.logger.debug(cmd)
 
         out = IO.popen(cmd)
