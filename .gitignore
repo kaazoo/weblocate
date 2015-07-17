@@ -2,7 +2,7 @@
 db/schema.rb
 db/*.db
 db/*.sqlite3
-config/environment.rb
+config/weblocate_settings.rb
 config/database.yml
 log/*
 Gemfile.lock

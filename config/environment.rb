@@ -43,14 +43,4 @@ end
 
 require 'escape'
 
-# configuration
-USE_SUDO = false
-RESULT_LIMIT = 250
-QUERY_MIN_LENGTH = 3
-FORM_FREQ = 3
-LOCATE_ARGS = "-i"
-HIDDEN_FILES = false
-ALLOWED_PREFIXES = ['/Users','/Applications']
-DELETE_PREFIX = /\/backup/
-LINK_PREFIX = "https://servername"
-SMB_PREFIX = "smb://servername"
+require 'config/weblocate_settings'
